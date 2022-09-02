@@ -6,13 +6,33 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>NOTEPAD</title>
     <link rel="stylesheet" href="./Notepad.css">
+    <script src="./Notepad.js"></script>
 </head>
 <body>
     <div class="container">
-        <h2>NOTEPAD</h2>
-
-        <p>Welcome to your digital notebook</p>
-        <img id="cross" src="./cs.png" alt="" width="50px" height="50px">
+        <div id="skeleton">
+            <h2>NOTEPAD</h2>
+            <p>Welcome to your digital notebook</p>
+            <img id="cross" onclick="change()" src="./cs.png" alt="" width="50px" height="50px">
+        </div>
+        <div id="inp">
+            <textarea name="" id="" cols="30" rows="20"></textarea><br>
+            <button onclick="chbk()" id="save">SAVE</button>
+        </div>
     </div>
+    <script>
+        var skeleton = document.getElementById("skeleton");
+        var inp = document.getElementById("inp");
+        
+        change = () =>{
+            skeleton.style.display = 'none';
+            inp.style.display = 'block';
+        }
+        chbk = () => {
+            inp.style.display = 'none';
+            skeleton.style.display = 'block';
+        }
+
+    </script>
 </body>
 </html>
