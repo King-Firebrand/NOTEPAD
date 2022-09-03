@@ -13,12 +13,15 @@
         <div id="skeleton">
             <h2>NOTEPAD</h2>
             <p>Welcome to your digital notebook</p>
-            <table id="table">
-                <tr>
-                    <td>Even the smallest note matter</td>
-                </tr>
-                <tbody id="tab"></tbody>
-            </table>
+            <div class="note">
+                <table id="table">
+                    <tr>
+                        <td>Even the smallest note matter</td>
+                    </tr>
+                    <tbody id="tab"></tbody>
+                </table>
+            </div>
+            
             <img id="cross" onclick="change()" src="./cs.png" alt="" width="50px" height="50px">
         </div>
         <div id="inp">
@@ -64,10 +67,18 @@
             var hr = "";
             for (let i = 0; i < dis.length; i++) {
                 //alert(i);
-                console.log(dis[0].message);
-                hr += `<tr><td>${dis[i].message}</td></tr>`;
+                hr += `<tr><td>${dis[i].message} <img id="delete" onclick='del(${i})' src="./cs.png" width='20px' height='20px'></td></tr>`;
+                
             } 
             tab.innerHTML = hr;
+            
+            
+        }
+        del=(i)=>{
+            //alert()
+            dat = JSON.parse(localStorage.getItem("Note"));
+            dis.splice(i,1);
+            draw();
         }
         
  
