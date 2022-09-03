@@ -13,13 +13,21 @@
         <div id="skeleton">
             <h2>NOTEPAD</h2>
             <p>Welcome to your digital notebook</p>
+            <table id="table">
+                <tr>
+                    <td>Even the smallest note matter</td>
+                </tr>
+                <tbody id="tab"></tbody>
+            </table>
             <img id="cross" onclick="change()" src="./cs.png" alt="" width="50px" height="50px">
         </div>
         <div id="inp">
-            <textarea name="" id="" cols="30" rows="20"></textarea><br>
-            <button onclick="chbk()" id="save">SAVE</button>
+            <textarea name="" placeholder="Write your note here" id="text" cols="30" rows="20"></textarea><br>
+            <button onclick="save()" id="save">SAVE</button>
         </div>
+        
     </div>
+
     <script>
         var skeleton = document.getElementById("skeleton");
         var inp = document.getElementById("inp");
@@ -28,11 +36,41 @@
             skeleton.style.display = 'none';
             inp.style.display = 'block';
         }
-        chbk = () => {
+        save = () => {
             inp.style.display = 'none';
             skeleton.style.display = 'block';
+            put();
+            
         }
 
+        var dat = JSON.parse(localStorage.getItem("Note"));
+        if (dat != null) {
+            
+            dis = dat;
+        }else{
+            dat = [];
+        }
+        
+        //var dis = [];
+        put = () =>{
+            dis.push({"message":text.value});
+            var a = JSON.stringify(dis);
+            localStorage.setItem("Note", a);
+            text.value = "";
+            draw();
+        }
+        
+        draw=()=>{
+            var hr = "";
+            for (let i = 0; i < dis.length; i++) {
+                //alert(i);
+                console.log(dis[0].message);
+                hr += `<tr><td>${dis[i].message}</td></tr>`;
+            } 
+            tab.innerHTML = hr;
+        }
+        
+ 
     </script>
 </body>
 </html>

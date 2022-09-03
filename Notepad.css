@@ -6,10 +6,18 @@
     text-align: center;
 }
 #cross{
-    margin-left: 420px;
-    margin-top: 380px;
+    position: fixed;
+    margin-left: 170px;
+    margin-top: 360px;
 }
 #inp{
     display: none;
     margin-top: 100px;
+}
+#text{
+    border: 2px solid black;
+}
+td{
+    border-left: 2px solid black;
+    border-bottom: 2px solid black;
 }
