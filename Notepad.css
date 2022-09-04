@@ -1,6 +1,5 @@
 body{
     background-image: radial-gradient(rgb(252, 134, 134) ,rgb(247, 213, 213), rgb(252, 134, 134));
-    /* background-color: linear-gradient(to right red, yellow); */
 }
 .container{
     position: relative;
@@ -15,28 +14,33 @@ body{
 }
 h2{
     color: rgb(253, 100, 100);
-    margin-top: -5px;
+    /* margin-top: -5px; */
 }
-p{
+/* p{
     margin-top: -7px;
-}
+} */
 #cross{
     position: absolute;
     top: 485px;
     left: 435px;
-    /* margin-left: 170px;
-    margin-top: 360px; */
 }
 #inp{
+    position: absolute;
     display: none;
     margin-top: 100px;
+    left: 130px;
 }
 #ed{
+    position: absolute;
     display: none;
     margin-top: 100px;
+    left: 130px;
+}
+#edi{
+    border: 2px solid rgb(250, 115, 115);
 }
 #text{
-    border: 2px solid black;
+    border: 2px solid rgb(250, 115, 115);
 }
 td{
     position: relative;
@@ -59,4 +63,14 @@ td{
     position: absolute;
     right: 10px;
     /* margin-left: 200px; */
+}
+#save{
+    background-color: rgb(250, 248, 248);
+    border: none;
+    font-size: 10px;
+    margin-top: 5px;
+    padding: 5px 10px 5px 10px;
+    color: rgb(36, 34, 34);
+    box-shadow: 0px 0px 10px rgb(250, 115, 115);
+
 }
