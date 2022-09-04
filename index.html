@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="container">
-        <div id="skeleton">
+        <div id="skeleton"><br>
             <h2>NOTEPAD</h2>
             <p>Welcome to your digital notebook</p>
             <div id="note">
@@ -60,14 +60,14 @@
             dat = [];
         }
         
-        //var dis = [];
+        var dis = [];
         put = () =>{
             dis.push({"message":text.value});
             var a = JSON.stringify(dis);
             localStorage.setItem("pad", a);
             text.value = "";
             draw();
-        }
+        }          
         
         draw=()=>{
             var hr = "";
