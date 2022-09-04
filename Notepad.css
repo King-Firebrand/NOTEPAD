@@ -8,8 +8,8 @@
 }
 #cross{
     position: absolute;
-    top: 470px;
-    left: 410px;
+    top: 485px;
+    left: 435px;
     /* margin-left: 170px;
     margin-top: 360px; */
 }
@@ -17,25 +17,32 @@
     display: none;
     margin-top: 100px;
 }
+#ed{
+    display: none;
+    margin-top: 100px;
+}
 #text{
     border: 2px solid black;
 }
 td{
-    border-left: 2px solid black;
-    border-bottom: 2px solid black;
+    position: relative;
+    border-left: 2px solid grey;
+    border-bottom: 2px solid grey;
     width: 350px;
     text-align: left;
     padding: 5px;
-    background-color: gray;
+    background-color:lightgray;
     border-radius: 30px;
     overflow: hidden;
 }
-.note{
+#note{
     width: 400px;
     height: 400px;
     margin-left: 20px;
     overflow: scroll;
 }
 #delete{
-    margin-left: 310px;
+    position: absolute;
+    right: 10px;
+    /* margin-left: 200px; */
 }

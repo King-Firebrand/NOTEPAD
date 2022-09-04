@@ -13,10 +13,10 @@
         <div id="skeleton">
             <h2>NOTEPAD</h2>
             <p>Welcome to your digital notebook</p>
-            <div class="note">
+            <div id="note">
                 <table id="table">
                     <tr>
-                        <td>Even the smallest note matter</td>
+                        <td>Even the smallest note matters</td>
                     </tr>
                     <tbody id="tab"></tbody>
                 </table>
@@ -28,12 +28,18 @@
             <textarea name="" placeholder="Write your note here" id="text" cols="30" rows="20"></textarea><br>
             <button onclick="save()" id="save">SAVE</button>
         </div>
+        <div id="ed">
+            <textarea name="" placeholder="Write your note here" id="edi" cols="30" rows="20"></textarea><br>
+            <button onclick="add()" id="save">EDIT</button>
+        </div>
         
     </div>
 
     <script>
         var skeleton = document.getElementById("skeleton");
         var inp = document.getElementById("inp");
+        var ed = document.getElementById("ed");
+        var note = document.getElementById("note");
         
         change = () =>{
             skeleton.style.display = 'none';
@@ -46,7 +52,7 @@
             
         }
 
-        var dat = JSON.parse(localStorage.getItem("Note"));
+        var dat = JSON.parse(localStorage.getItem("pad"));
         if (dat != null) {
             
             dis = dat;
@@ -58,7 +64,7 @@
         put = () =>{
             dis.push({"message":text.value});
             var a = JSON.stringify(dis);
-            localStorage.setItem("Note", a);
+            localStorage.setItem("pad", a);
             text.value = "";
             draw();
         }
@@ -67,7 +73,7 @@
             var hr = "";
             for (let i = 0; i < dis.length; i++) {
                 //alert(i);
-                hr += `<tr><td>${dis[i].message} <img id="delete" onclick='del(${i})' src="./cs.png" width='20px' height='20px'></td></tr>`;
+                hr += `<tr><td ondblclick="edit(${i})">${dis[i].message} <img id="delete" onclick='del(${i})' src="./cs.png" width='15px' height='15px'></td></tr>`;
                 
             } 
             tab.innerHTML = hr;
@@ -76,9 +82,25 @@
         }
         del=(i)=>{
             //alert()
-            dat = JSON.parse(localStorage.getItem("Note"));
+            dat = JSON.parse(localStorage.getItem("pad"));
             dis.splice(i,1);
             draw();
+        }
+        edit = (i) =>{
+            
+            note.style.display = 'none';
+            skeleton.style.display = 'none';
+            ed.style.display = 'block';
+            edi.value = dis[i].message;
+            d = i;
+        }
+        add = () =>{
+            dat = JSON.parse(localStorage.getItem("pad"));
+            dis[d].message = edi.value;
+            draw();
+            ed.style.display = 'none';
+            note.style.display = 'block';
+            skeleton.style.display = 'block';
         }
         
  
